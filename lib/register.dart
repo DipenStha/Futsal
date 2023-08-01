@@ -49,7 +49,7 @@ class _MyRegisterState extends State<MyRegister> {
       //   image: AssetImage('assets/register.jpg'), fit: BoxFit.cover)),
       children: [
         Scaffold(
-          backgroundColor: Colors.orangeAccent,
+          backgroundColor: Colors.white,
           body: SingleChildScrollView(
             child: Stack(
               children: [
