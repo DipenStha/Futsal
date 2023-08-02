@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:futshal/controller/futsal_controller.dart';
@@ -73,7 +74,7 @@ class _FustsalAppState extends State<FustsalApp> {
         ],
       ),
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.orangeAccent,
+      backgroundColor: Colors.white,
       body: getBody(),
     );
   }
@@ -99,8 +100,7 @@ class _FustsalAppState extends State<FustsalApp> {
               // width: double.infinity,
               height: 40.0,
               decoration: BoxDecoration(
-                  color: Colors.orangeAccent,
-                  borderRadius: BorderRadius.circular(10)),
+                  color: Colors.white, borderRadius: BorderRadius.circular(10)),
               child: Row(
                 children: [
                   Expanded(
@@ -110,6 +110,15 @@ class _FustsalAppState extends State<FustsalApp> {
                       fillColor: Colors.white,
                       filled: true,
                       hintText: "Search Futsals",
+                      labelText: "Search Futsals",
+                      hintStyle: TextStyle(
+                          fontSize: 15,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w400),
+                      labelStyle: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.black),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0),
                       ),
@@ -120,27 +129,30 @@ class _FustsalAppState extends State<FustsalApp> {
                     width: 1.0,
                   ),
                   MaterialButton(
-                    elevation: 3.0,
+                    height: 40,
+                    elevation: 1.5,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                     onPressed: () {
-                      FutsalController()
-                          .futsals(name: this.search.text)
-                          .then((value) {
-                        setState(() {
-                          this.futsalsList = value;
-                        });
-                      });
+                      Navigator.pushNamed(context, 'login');
+                      // FutsalController()
+                      //     .futsals(name: this.search.text)
+                      //     .then((value) {
+                      //   setState(() {
+                      //     this.futsalsList = value;
+                      //   });
+                      // });
                     },
                     child: const Padding(
                       padding: EdgeInsets.symmetric(vertical: 6.0),
                       child: Icon(
                         Icons.search,
-                        color: Colors.blueAccent,
+                        color: Color(0xFF048CFB),
                       ),
                     ),
-                    color: Colors.white70,
+                    color: Colors.white,
+                    // hoverColor: Colors.red,
                     splashColor: Colors.blue,
                   ),
                 ],

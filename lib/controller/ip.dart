@@ -1,4 +1,4 @@
-const host_url = "http://10.20.25.130/Futsal/";
+const host_url = "http://192.168.1.87/futsal/";
 const host_public = host_url + "public/";
 
 const GETAREAURL = host_public + "api/getAreaDetail";

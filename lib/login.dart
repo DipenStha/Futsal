@@ -16,6 +16,20 @@ class _MyLoginState extends State<MyLogin> {
   final _username = TextEditingController();
   final _password = TextEditingController();
 
+  bool _isVisible = false;
+  bool _isVisible1 = false;
+  void updateStatus() {
+    setState(() {
+      _isVisible = !_isVisible;
+    });
+  }
+
+  void updateStatus1() {
+    setState(() {
+      _isVisible1 = !_isVisible1;
+    });
+  }
+
   @override
   void initState() {
     username = "";
@@ -38,7 +52,7 @@ class _MyLoginState extends State<MyLogin> {
                   const SizedBox(height: 60),
                   const CircleAvatar(
                     radius: 150,
-                    backgroundImage: AssetImage("assets/loginn.jpg"),
+                    backgroundImage: AssetImage("lib/assets/futsal.png"),
                   ),
                   const SizedBox(height: 20),
                   TextField(
@@ -47,8 +61,8 @@ class _MyLoginState extends State<MyLogin> {
                         prefixIcon: const Icon(Icons.email),
                         fillColor: Colors.grey.shade100,
                         filled: true,
-                        labelText: 'Email',
-                        labelStyle: const TextStyle(color: Colors.greenAccent),
+                        labelText: 'Phone No.',
+                        labelStyle: const TextStyle(color: Colors.black),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10)),
                         focusedBorder: const OutlineInputBorder(
@@ -61,14 +75,25 @@ class _MyLoginState extends State<MyLogin> {
                   const SizedBox(height: 20),
                   TextField(
                     controller: _password,
+                    obscureText: _isVisible ? false : true,
                     decoration: InputDecoration(
                         prefixIcon: const Icon(Icons.email),
                         fillColor: Colors.grey.shade100,
                         filled: true,
                         labelText: 'Password',
-                        labelStyle: const TextStyle(color: Colors.greenAccent),
+                        labelStyle: const TextStyle(color: Colors.black),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10)),
+                        suffixIcon: GestureDetector(
+                          onTap: () {
+                            updateStatus();
+                          },
+                          child: Icon(
+                            _isVisible
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                          ),
+                        ),
                         focusedBorder: const OutlineInputBorder(
                             borderSide:
                                 BorderSide(color: Colors.green, width: 1.5))),
@@ -76,11 +101,11 @@ class _MyLoginState extends State<MyLogin> {
                       password = value;
                     },
                   ),
-                  const SizedBox(height: 15),
+                  const SizedBox(height: 10),
                   Row(
                     children: [
                       const Text("Forgot Password?",
-                          style: TextStyle(fontSize: 13, color: Colors.red)),
+                          style: TextStyle(fontSize: 13, color: Colors.black)),
                       TextButton(
                           onPressed: () {},
                           child: const Text("Click Here",
@@ -88,11 +113,11 @@ class _MyLoginState extends State<MyLogin> {
                               style: TextStyle(
                                   decoration: TextDecoration.underline,
                                   fontSize: 13,
-                                  color: Colors.green))),
+                                  color: Colors.black))),
                     ],
                   ),
                   const SizedBox(
-                    height: 15,
+                    height: 10,
                   ),
                   MaterialButton(
                       height: 50,
@@ -120,7 +145,7 @@ class _MyLoginState extends State<MyLogin> {
                         Colors.redAccent;
                       }),
                   const SizedBox(
-                    height: 15,
+                    height: 10,
                   ),
                   Row(
                     children: <Widget>[
@@ -128,7 +153,7 @@ class _MyLoginState extends State<MyLogin> {
                         "Don't have Account?",
                         style: TextStyle(
                           fontSize: 13,
-                          color: Color(0xff4c505b),
+                          color: Colors.black,
                         ),
                       ),
                       TextButton(
@@ -141,7 +166,7 @@ class _MyLoginState extends State<MyLogin> {
                             style: TextStyle(
                               decoration: TextDecoration.underline,
                               fontSize: 13,
-                              color: Color(0xff4c505b),
+                              color: Colors.black,
                             ),
                           )),
                     ],

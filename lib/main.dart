@@ -24,7 +24,7 @@ void main() {
         //initialRoute: 'stepperpage',
         // initialRoute: 'user_form',
         // initialRoute: 'deliveryaddress',
-        initialRoute: 'main_page',
+        initialRoute: 'home_page',
         // initialRoute: 'register',
         // initialRoute: 'email_authentication',
         routes: {
