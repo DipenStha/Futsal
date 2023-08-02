@@ -1,8 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
-
 import 'package:flutter/material.dart';
 import 'package:futshal/controller/ip.dart';
+import 'package:futshal/futsal_info.dart';
+import 'package:futshal/model/futsal.dart';
+import 'package:futshal/model/get_futsal.dart';
 import 'package:http/http.dart' as http;
 
 class FutsalController {
@@ -23,7 +25,7 @@ class FutsalController {
     return _futs;
   }
 
-  Future<GetFustal?> futasl(
+  Future<GetFutsal?> futsal(
       {required int id, required BuildContext ctx}) async {
     GetFutsal? _futs;
     var url = Uri.parse(SHOWRESTAURANTS);
@@ -36,8 +38,8 @@ class FutsalController {
       Navigator.push<void>(
         ctx,
         MaterialPageRoute(
-          builder: (BuildContext context) => RestaurantInfo(
-            getRestaurant: _rest,
+          builder: (BuildContext context) => FutsalInfo(
+            getFutsal: _futs,
           ),
         ),
       );

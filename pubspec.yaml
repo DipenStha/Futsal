@@ -40,6 +40,7 @@ dependencies:
   fluttertoast: ^8.2.2
   provider: ^6.0.5
   flashy_tab_bar2: ^0.0.4
+  basics: ^0.10.0
 
 dev_dependencies:
   flutter_test:
